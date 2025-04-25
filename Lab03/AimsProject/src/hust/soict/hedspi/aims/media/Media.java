@@ -51,9 +51,11 @@ public abstract class Media {
 		this.cost = cost;
 	}
 	
-	boolean equals(Media media) {
-		if(this.title.equals(media.getTitle()))return true;
-		return false;
+	public boolean equals(Object obj) {
+		if(this == obj)return true;
+		if (!(obj instanceof Media)) return false;
+		Media other = (Media)obj;
+		return title!=null && title.equalsIgnoreCase(other.title); 
 	}
 	
 	public void play() {
