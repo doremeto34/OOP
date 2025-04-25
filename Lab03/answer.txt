@@ -1,12 +1,36 @@
 14. 
+Q: Which classes are aggregates of other classes? Checking all constructors of whole classes if they
+initialize for their parts?
+A:
+Class Cart aggregates class Media
+Class Shop aggregates class Media
+Class CompactDisc aggregates class Track
+
+15.
+Q: If the passing object is not an instance of Media, what happens?
+Passing object different than Media would cause error.
+Add "if (!(obj instanceof Media)) return false;" so the method return false on different class than Media to avoid error.
+
+17.
 Q:What class should implement the Comparable interface?
 A:The Media class should implement the Comparable interface as Book and Disc classes would inherit the comparison logic for sorting by title or cost
 Q:In those classes, how should you implement the compareTo()method to reflect the ordering that
 we want?
-A:We can override the compareTo() method to compare the preferred way
+A:We can override the compareTo() method for custom comparison
+@Override
+	public int compare(Media o1, Media o2) {
+		// TODO Auto-generated method stub
+		if(o1.getCost() == o2.getCost()) {
+			if(o1.getTitle().equals(o2.getTitle())) return 0;
+			return o1.getTitle().compareTo(o2.getTitle());
+			
+		}else
+		if(o1.getCost() < o2.getCost()) return -1; else
+		return 1;
+	}
 Q:Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this
 Comparable interface approach?
-A:We can implement a primary and secondary sorting rule by first comparing the title, and if they are equal, then compare by cost and vice versa
+A:No, we can't have two ordering rules using Comparable interface since Comparable interface only allows one comparation rule with compareTo() method. Instead, we can use two Comparator classes
 Q:Suppose the DVDs have a different ordering rule from the other media types, that is by title, then
 decreasing length, then cost. How would you modify your code to allow this?
 A:We can override the comparator for DVD class like this
