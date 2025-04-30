@@ -1,0 +1,15 @@
+Programming with AWT and Swing is quite similar (similar elements including container/components, and
+event-handling). However, there are some differences that you need to note:
+o Compare the top-level containers in Swing and AWT
+o Compare the class name of components in AWT and the corresponding class’s name in Swing
+o Compare the event-handling of Swing and AWT applications
+The resulting appearances of the applications developed using Swing and AWT might be different as well.
+Make comparisons.
+
+1. Top level containers in AWT are Frame, Dialog, Applet. Top level containers in Swing are JFrame, JDialog, JApplet, JWindow
+   Top level containers in AWT are heavyweight since they rely on OS components, while Swing containers are lightweight because they are written entirely by Java
+2. Class name in Swing has a prefix J
+3. Swing builds on AWT’s event-handling model but improves it with better thread management (EDT) and a richer set of listeners
+Comparison on appearances:
+AWT: More "native" but limited and inconsistent across platforms
+Swing: More versatile and consistent, but can look less native unless customized
