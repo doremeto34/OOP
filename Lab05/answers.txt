@@ -1,0 +1,3 @@
+11. The Aims class must be updated to handle any exceptions generated when the play() methods
+are called. What happens when you don’t update for them to catch?
+If we don't update play() methods to catch, we will get compiling error since Java forces to either catch or declare checked exceptions
