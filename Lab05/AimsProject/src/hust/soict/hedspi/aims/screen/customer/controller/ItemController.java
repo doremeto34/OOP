@@ -56,11 +56,9 @@ public class ItemController {
         try {
             media.play();
         } catch (PlayerException e) {
-            // Print stack trace to console (for developer/debugging)
             System.out.println("Error when playing media: " + e.getMessage());
             e.printStackTrace();
 
-            // Show error alert to user
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Playback Error");
             alert.setHeaderText("Cannot play media");
