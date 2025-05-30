@@ -86,11 +86,9 @@ public class CartController {
     	try {
             media.play();
         } catch (PlayerException e) {
-            // Print to console for developer
             System.out.println("Error when playing media: " + e.getMessage());
             e.printStackTrace();
 
-            // Show dialog to user
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Playback Error");
             alert.setHeaderText("Cannot play media");
@@ -137,14 +135,12 @@ public class CartController {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            // Order is confirmed
             Alert infoAlert = new Alert(AlertType.INFORMATION);
             infoAlert.setTitle("Order Placed");
             infoAlert.setHeaderText(null);
             infoAlert.setContentText("Your order has been placed successfully!");
             infoAlert.showAndWait();
         } else {
-            // Order was cancelled
             Alert cancelAlert = new Alert(AlertType.INFORMATION);
             cancelAlert.setTitle("Order Cancelled");
             cancelAlert.setHeaderText(null);
